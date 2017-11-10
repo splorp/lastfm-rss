@@ -1,7 +1,10 @@
 <?php
 
 require_once ('simple_html_dom.php');
-$user = 'thexiffy';
+
+// Set the default Last.fm account to be used if no user is specified
+$user = '';
+
 if (isset($_GET['user'])) {
 	$user = urlencode ($_GET['user']);
 }
