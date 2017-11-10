@@ -30,10 +30,10 @@ header("Content-type: text/xml; charset=utf-8");
         <description>
             Last.fm last <?php echo $type ?> tracks from <?php echo $user ?>.
         </description>
-        <link>http://www.last.fm/<?php echo $user ?></link>
         <ttl>960</ttl>
         <generator>xiffy.nl</generator>
         <category>Personal</category>
+		<link>http://www.last.fm/user/<?php echo $user ?></link>
 <?php
 
 $i = 0;
