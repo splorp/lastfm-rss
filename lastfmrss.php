@@ -26,14 +26,14 @@ header("Content-type: text/xml; charset=utf-8");
     <channel>
         <lastBuildDate><?php echo gmdate(DATE_RFC822, time()) ?></lastBuildDate>
         <language>en</language>
-        <title>Last.fm last <?php echo $type ?> tracks from <?php echo $user ?></title>
-        <description>
-            Last.fm last <?php echo $type ?> tracks from <?php echo $user ?>.
-        </description>
         <ttl>960</ttl>
-        <generator>xiffy.nl</generator>
         <category>Personal</category>
+		<title>Last.fm : <?php echo $user ?> just <?php echo $type ?></title>
+		<description>
+			Last.fm : <?php echo $user ?> just <?php echo $type ?>
+		</description>
 		<link>http://www.last.fm/user/<?php echo $user ?></link>
+		<generator>lastfmrss</generator>
 <?php
 
 $i = 0;
