@@ -3,12 +3,14 @@
 // http://simplehtmldom.sourceforge.net/
 require_once ('simple_html_dom.php');
 
-// Set the default Last.fm account to be used if no user is specified
+// Optionally set the default Last.fm username and real name
 $user = '';
 
 if (isset($_GET['user'])) {
 	$user = urlencode ($_GET['user']);
 }
+
+// Grab the HTML for the tracks
 if (isset($_GET['loved'])) {
 	$type = 'loved';
 	$html = file_get_html("http://www.last.fm/user/{$user}/loved?page=1");
@@ -33,7 +35,7 @@ header("Content-type: text/xml; charset=utf-8");
 		</description>
 		<link>http://www.last.fm/user/<?php echo $user ?></link>
 		<ttl>960</ttl>
-		<generator>lastfmrss</generator>
+		<generator>splo.me</generator>
 		<category>Personal</category>
 <?php
 
@@ -61,7 +63,7 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 			<title><?php echo $artist.' — '.$title ?> </title>
 			<pubDate><?php echo $playdate; ?></pubDate>
 			<link>http://www.last.fm<?php echo $link ?></link>
-			<guid isPermaLink='false'><?php echo $link ?></guid>
+			<guid isPermaLink="false"><?php echo $link ?></guid>
 			<description><![CDATA[<?php echo $desc?>]]></description>
 		</item>
 
