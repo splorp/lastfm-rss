@@ -1,5 +1,6 @@
 <?php
 
+// http://simplehtmldom.sourceforge.net/
 require_once ('simple_html_dom.php');
 
 // Optionally set the default Last.fm username and real name
@@ -9,6 +10,8 @@ $name = '';
 if (isset($_GET['user'])) {
 	$user = urlencode ($_GET['user']);
 }
+
+// Grab the HTML for the tracks
 if (isset($_GET['loved'])) {
 	$type = 'loved';
 	$html = file_get_html("http://www.last.fm/user/{$user}/loved?page=1");
@@ -68,7 +71,7 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 	}
 ?>
 		<item>
-			<title><?php echo $artist.' - '.$title ?> </title>
+			<title><?php echo $artist.' — '.$title ?></title>
 			<pubDate><?php echo $playdate; ?></pubDate>
 			<link>http://www.last.fm<?php echo $link ?></link>
 			<guid isPermaLink="false"><?php echo $link ?></guid>
@@ -81,6 +84,7 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 				width="150" 
 				height="150" />
 		</item>
+
 <?php
 	$i++;
 }
