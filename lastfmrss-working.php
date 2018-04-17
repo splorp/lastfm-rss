@@ -53,8 +53,8 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 		$link = $content->find('a',1)->href;
 		$cover = 'https://lastfm-img2.akamaized.net/i/u/174s/4128a6eb29f94943c9d206c08e625904';
 
-		$desc = 'https://www.last.fm'. $link;
-		$desc = '<a href="'.$desc.'">'.$artist.'</a>';
+//		$desc = 'https://www.last.fm'. $link;
+//		$desc = '<a href="'.$desc.'">'.$artist.'</a>';
 		
 //		Grab the HTML for the current track page to extract the cover art
 //		$track_html = file_get_html("http://www.last.fm" . $content->find('a',1)->href);
@@ -70,6 +70,7 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 		$da_time = ($node['attr']['title']);
 
  		$playdate = gmdate(DATE_RFC822, strtotime($da_time));
+		$desc = 'Scrobbled: ' . $playdate;
 	}
 ?>
 		<item>
