@@ -1,7 +1,11 @@
 <?php
 
 require_once ('simple_html_dom.php');
+
+// Optionally set the default Last.fm username and real name
 $user = '';
+$name = '';
+
 if (isset($_GET['user'])) {
 	$user = urlencode ($_GET['user']);
 }
@@ -13,6 +17,11 @@ if (isset($_GET['loved'])) {
 	$html = file_get_html("http://www.last.fm/user/{$user}/library?page=1");
 }
 
+// Grab the HTML for the real name
+$profile_html = file_get_html("http://www.last.fm/user/{$user}");
+foreach($profile_html->find('span[class=header-title-display-name]') as $getname) {
+	$name = trim($getname->plaintext);
+}
 
 // Start the output
 header("Content-Type: application/rss+xml");
@@ -23,9 +32,9 @@ header("Content-type: text/xml; charset=utf-8");
 	<channel>
 		<lastBuildDate><?php echo gmdate(DATE_RFC822, time()) ?></lastBuildDate>
 		<language>en</language>
-		<title>Last.fm : <?php echo $user ?>’s <?php echo $type ?> tracks</title>
+		<title><?php echo $name ?> on Last.fm</title>
 		<description>
-			Last.fm : <?php echo $user ?>’s <?php echo $type ?> tracks
+			<?php echo $name ?> on Last.fm
 		</description>
 		<link>http://www.last.fm/user/<?php echo $user ?></link>
 		<ttl>960</ttl>
