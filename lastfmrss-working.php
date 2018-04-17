@@ -27,7 +27,7 @@ header("Content-type: text/xml; charset=utf-8");
 		<description>
 			Last.fm : <?php echo $user ?>’s <?php echo $type ?> tracks
 		</description>
-		<link>http://www.last.fm/<?php echo $user ?></link>
+		<link>http://www.last.fm/user/<?php echo $user ?></link>
 		<ttl>960</ttl>
 		<generator>splo.me</generator>
 		<category>Personal</category>
