@@ -51,14 +51,16 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 		$artist = $content->find('a',0)->plaintext;
 		$title = $content->find('a',1)->plaintext;
 		$link = $content->find('a',1)->href;
+		$cover = 'https://lastfm-img2.akamaized.net/i/u/174s/4128a6eb29f94943c9d206c08e625904';
 
 		$desc = 'https://www.last.fm'. $link;
 		$desc = '<a href="'.$desc.'">'.$artist.'</a>';
 		
-		$track_html = file_get_html("http://www.last.fm/user/{$link}");
-		$track_avatar = $track_html->find('.header-avatar-playlink');
-		$cover = $track_avatar->find('img',0)->src;
-
+//		Grab the HTML for the current track page to extract the cover art
+//		$track_html = file_get_html("http://www.last.fm" . $content->find('a',1)->href);
+//		foreach($track_html->find('.header-avatar-playlink]') as $track_avatar) {
+//			$cover = $track_avatar->find('img',0)->src;
+//		}
 	}
 	foreach($row->find('.chartlist-timestamp') as $timestamp) {
 		$span = str_get_html(trim($timestamp->innertext)); // don't ask
@@ -81,8 +83,8 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 				url="<?php echo $cover ?>" 
 				medium="image" 
 				type="image/jpeg" 
-				width="150" 
-				height="150" />
+				width="174" 
+				height="174" />
 		</item>
 
 <?php
