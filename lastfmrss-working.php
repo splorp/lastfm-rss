@@ -68,6 +68,7 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 		$arr = (array)$span;
 		$node = (array) $arr['nodes'][1];
 		$timestamp = ($node['attr']['title']);
+ 		$playdate = gmdate(DATE_RFC822, strtotime($timestamp));
  		$desc = gmdate("l, F jS g:i:s A", strtotime($timestamp));
 	}
 ?>
