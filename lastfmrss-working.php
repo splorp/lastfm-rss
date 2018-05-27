@@ -33,7 +33,7 @@ header("Content-type: text/xml; charset=utf-8");
 
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<lastBuildDate><?php echo gmdate(DATE_RFC822, time()) ?></lastBuildDate>
+		<lastBuildDate><?php echo gmdate('D, d M Y H:i:s O', time()) ?></lastBuildDate>
 		<language>en</language>
 		<title><?php echo $name ?> on Last.fm</title>
 		<description>
@@ -68,7 +68,7 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 		$arr = (array)$span;
 		$node = (array) $arr['nodes'][1];
 		$timestamp = ($node['attr']['title']);
- 		$playdate = gmdate(DATE_RFC822, strtotime($timestamp));
+		$playdate = gmdate("D, d M Y H:i:s O", strtotime($timestamp));
  		$desc = gmdate("l, F jS g:i:s A", strtotime($timestamp));
 	}
 ?>
