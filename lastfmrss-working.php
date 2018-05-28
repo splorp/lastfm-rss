@@ -76,7 +76,7 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 			<title><?php echo $artist.' — '.$title ?></title>
 			<pubDate><?php echo $playdate; ?></pubDate>
 			<link>http://www.last.fm<?php echo $link ?></link>
-			<guid isPermaLink="false"><?php echo $link ?></guid>
+			<guid isPermaLink="false"><?php echo $artist . ' — ' . $title . ' — ' . $playdate ?></guid>
 			<description><![CDATA[<?php echo $desc?>]]></description>
 			<media:content 
 				xmlns:media="http://search.yahoo.com/mrss/" 
