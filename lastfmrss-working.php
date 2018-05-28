@@ -40,7 +40,7 @@ header("Content-type: text/xml; charset=utf-8");
 			<?php echo $name ?> on Last.fm
 		</description>
 		<link>http://www.last.fm/user/<?php echo $user ?></link>
-		<ttl>5</ttl>
+		<ttl>30</ttl>
 		<generator>splo.me</generator>
 		<category>Personal</category>
 <?php
