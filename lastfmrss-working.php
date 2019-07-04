@@ -14,14 +14,14 @@ if (isset($_GET['user'])) {
 // Grab the HTML for the tracks
 if (isset($_GET['loved'])) {
 	$type = 'loved';
-	$html = file_get_html("http://www.last.fm/user/{$user}/loved?page=1");
+	$html = file_get_html("https://www.last.fm/user/{$user}/loved?page=1");
 } else {
 	$type = 'played';
-	$html = file_get_html("http://www.last.fm/user/{$user}/library?page=1");
+	$html = file_get_html("https://www.last.fm/user/{$user}/library?page=1");
 }
 
 // Grab the HTML for the real name
-$profile_html = file_get_html("http://www.last.fm/user/{$user}");
+$profile_html = file_get_html("https://www.last.fm/user/{$user}");
 foreach($profile_html->find('span[class=header-title-display-name]') as $getname) {
 	$name = trim($getname->plaintext);
 }
@@ -39,7 +39,7 @@ header("Content-type: text/xml; charset=utf-8");
 		<description>
 			<?php echo $name ?> on Last.fm
 		</description>
-		<link>http://www.last.fm/user/<?php echo $user ?></link>
+		<link>https://www.last.fm/user/<?php echo $user ?></link>
 		<ttl>30</ttl>
 		<generator>splo.me</generator>
 		<category>Personal</category>
@@ -61,7 +61,7 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 //		$desc = '<a href="'.$desc.'">'.$artist.'</a>';
 		
 //		Grab the HTML for the current track page to extract the cover art
-//		$track_html = file_get_html("http://www.last.fm" . $content->find('a',1)->href);
+//		$track_html = file_get_html("https://www.last.fm" . $content->find('a',1)->href);
 //		foreach($track_html->find('.header-avatar-playlink]') as $track_avatar) {
 //			$cover = $track_avatar->find('img',0)->src;
 //		}
@@ -79,7 +79,7 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 		<item>
 			<title><?php echo $artist.' — '.$title ?></title>
 			<pubDate><?php echo $playdate; ?></pubDate>
-			<link>http://www.last.fm<?php echo $link ?></link>
+			<link>https://www.last.fm<?php echo $link ?></link>
 			<guid isPermaLink="false"><?php echo $artist . ' — ' . $title . ' — ' . $playdate ?></guid>
 			<description><![CDATA[<?php echo $desc?>]]></description>
 			<media:content 
