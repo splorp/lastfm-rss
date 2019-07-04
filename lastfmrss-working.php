@@ -47,11 +47,15 @@ header("Content-type: text/xml; charset=utf-8");
 
 $i = 0;
 foreach($html->find('.js-focus-controls-container') as $row) {
-	foreach($row->find('.chartlist-name') as $content) {
+	foreach($row->find('.chartlist-artist') as $content) {
 		$artist = $content->find('a',0)->plaintext;
-		$title = $content->find('a',1)->plaintext;
-		$link = $content->find('a',1)->href;
+	}
+
+	foreach($row->find('.chartlist-name') as $content) {
+		$title = $content->find('a',0)->plaintext;
+		$link = $content->find('a',0)->href;
 		$cover = 'https://lastfm-img2.akamaized.net/i/u/174s/4128a6eb29f94943c9d206c08e625904';
+	}
 
 //		$desc = 'https://www.last.fm'. $link;
 //		$desc = '<a href="'.$desc.'">'.$artist.'</a>';
@@ -61,7 +65,7 @@ foreach($html->find('.js-focus-controls-container') as $row) {
 //		foreach($track_html->find('.header-avatar-playlink]') as $track_avatar) {
 //			$cover = $track_avatar->find('img',0)->src;
 //		}
-	}
+
 	foreach($row->find('.chartlist-timestamp') as $timestamp) {
 		$span = str_get_html(trim($timestamp->innertext)); // don't ask
 		$span->find('span');
