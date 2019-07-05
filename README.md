@@ -8,7 +8,6 @@ Based on a fork of Appie Verschoor’s [lastfmrss](https://github.com/xiffy/last
 
 To do:
 
-- [ ] Strip trailing spaces from `realname`
 - [ ] Possibly change URI to use plain directory as end point: `/lastfm/username`
 - [ ] Change file name to `index.php` to accommodate above
 - [ ] Determine whether file name change is affected on [Kirby](https://getkirby.com/) installs

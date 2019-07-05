@@ -36,9 +36,7 @@ header("Content-type: text/xml; charset=utf-8");
 		<lastBuildDate><?php echo gmdate('D, d M Y H:i:s O', time()) ?></lastBuildDate>
 		<language>en</language>
 		<title><?php echo $name ?> on Last.fm</title>
-		<description>
-			<?php echo $name ?> on Last.fm
-		</description>
+		<description>Recently <?php echo $type ?> tracks scrobbled on Last.fm by <?php echo $name ?></description>
 		<link>https://www.last.fm/user/<?php echo $user ?></link>
 		<ttl>30</ttl>
 		<generator>splo.me</generator>
