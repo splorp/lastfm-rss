@@ -40,7 +40,8 @@ foreach($profile_html->find('span[class=header-title-display-name]') as $getname
 	</head>
 	<body>
 		<header>
-			<h1><?php echo $name ?> on Last.fm</h1>
+			<h1><a href="https://www.last.fm/user/<?php echo $user ?>"><?php echo $name ?></a> on <a href="https://www.last.fm/">Last.fm</a></h1>
+			<p>Recently <?php echo $type ?> tracks scrobbled by @<?php echo $user ?>.</p>
 		</header>
 		<section>
 			<ul>
