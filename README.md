@@ -8,7 +8,7 @@ Based on a fork of Appie Verschoor’s [lastfmrss](https://github.com/xiffy/last
 
 ## Demonstration Feed
 
-[https://splo.me/lastfmrss-working.php?user=ghutchin](splo.me/lastfmrss-working.php?user=ghutchin)
+[splo.me/lastfmrss-working.php?user=ghutchin](https://splo.me/lastfmrss-working.php?user=ghutchin)
 
 ## Future Work
 
