@@ -8,7 +8,7 @@ Based on a fork of Appie Verschoor’s [lastfmrss](https://github.com/xiffy/last
 
 ## Demonstration Feed
 
-[splo.me/lastfmrss-working.php?user=ghutchin](https://splo.me/lastfmrss-working.php?user=ghutchin)
+[https://splo.me/lastfmrss-working.php?user=ghutchin](https://splo.me/lastfmrss-working.php?user=ghutchin)
 
 ## Future Work
 
@@ -20,3 +20,4 @@ Based on a fork of Appie Verschoor’s [lastfmrss](https://github.com/xiffy/last
 	- `&mode=text` - text of artist and track only
 	- `&mode=link` - link to track page only
 - [ ] Better handling of passing a null username
+- [ ] Add `atom:link` with `rel="self"` per W3C Feed Validator [recommendations](https://validator.w3.org/feed/docs/warning/MissingAtomSelfLink.html)
