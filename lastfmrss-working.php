@@ -11,13 +11,27 @@ if (isset($_GET['user'])) {
 	$user = urlencode ($_GET['user']);
 }
 
+// Specify criteria to handle timeouts and certificate issues
+$context = stream_context_create(
+    array(
+        'http' => array(
+            'follow_location' => false,
+            'timeout' => 10,
+        ),
+        'ssl' => array(
+            "verify_peer"=>false,
+            "verify_peer_name"=>false,
+        ),
+    )
+);
+
 // Grab the HTML for the tracks
 if (isset($_GET['loved'])) {
 	$type = 'loved';
-	$html = file_get_html("https://www.last.fm/user/{$user}/loved?page=1");
+	$html = file_get_html("https://www.last.fm/user/{$user}/loved?page=1", false, $context);
 } else {
 	$type = 'played';
-	$html = file_get_html("https://www.last.fm/user/{$user}/library?page=1");
+	$html = file_get_html("https://www.last.fm/user/{$user}/library?page=1", false, $context);
 }
 
 // Grab the HTML for the real name
@@ -29,6 +43,7 @@ foreach($profile_html->find('span[class=header-title-display-name]') as $getname
 // Start the output
 header("Content-Type: application/rss+xml");
 header("Content-type: text/xml; charset=utf-8");
+header("Cache-Control:s-maxage=600");
 ?>
 
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
