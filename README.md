@@ -13,8 +13,9 @@ Based on a fork of Appie Verschoor’s [lastfmrss](https://github.com/xiffy/last
 ## Future Work
 
 - [ ] Look into changing URI structure to use plain directory as end point: `/lastfm/username`
-- [ ] Change file name to `index.php` to accommodate above
-- [ ] Determine how the above change works with [Kirby](https://getkirby.com/) install
+- [ ] Perhaps `/lastfm/username` generates HTML, `/lastfm/username/rss` generates a feed
+- [ ] Change file name to `index.php` to accommodate above or handle via .htaccess rewrite
+- [ ] Determine how the above changes work with [Kirby](https://getkirby.com/) install
 - [ ] Remove duplicate text for artist, since it’s included with the track information
 - [ ] Add filtering modes or features via query string attributes, eg:
 	- `&mode=text` - text of artist and track only
