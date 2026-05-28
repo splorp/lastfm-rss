@@ -6,9 +6,9 @@ Requires [PHP Simple HTML DOM Parser](https://simplehtmldom.sourceforge.io/) to 
 
 Based on a fork of Appie Verschoor’s [lastfmrss](https://github.com/xiffy/lastfmrss).
 
-## Demonstration Feed
+## Example
 
-[splo.me/lastfmrss-working.php?user=ghutchin](https://splo.me/lastfmrss-working.php?user=ghutchin)
+`https://yourserver/lastfmrss.php?user=yourusername`
 
 ## Future Work
 
