@@ -6,6 +6,7 @@ require_once ('simple_html_dom.php');
 // Optionally set the default Last.fm username and real name
 $user = '';
 $name = '';
+$size = '';
 
 if (isset($_GET['user'])) {
 	$user = urlencode ($_GET['user']);
